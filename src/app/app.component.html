@@ -1,0 +1,24 @@
+<ng-container *ngIf='coins'>
+    <div class="container">
+       <app-card-coin class="float" *ngFor="let coin of coins" [coin]='coin'></app-card-coin>
+    </div>
+</ng-container>
+
+<!-- <p>ניווט</p>
+<p>כותרת עם תמונה</p>
+<div style="width: 500px;">
+    <ngb-accordion #acc="ngbAccordion">
+    <ngb-panel id="toggle-1" title="First panel">
+      <ng-template ngbPanelContent>111111
+      </ng-template>
+    </ngb-panel>
+    <ngb-panel id="toggle-2" title="Second">
+      <ng-template ngbPanelContent>22222
+      </ng-template>
+    </ngb-panel>
+  </ngb-accordion>
+</div>
+  <hr/>
+  <button class="btn btn-sm btn-outline-primary mr-2" (click)="acc.toggle('toggle-1')">Toggle first</button>
+  <button class="btn btn-sm btn-outline-primary mr-2" (click)="acc.toggle('toggle-2')">Toggle second</button>
+   -->
