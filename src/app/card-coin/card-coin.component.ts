@@ -26,7 +26,6 @@ export class CardCoinComponent implements OnInit {
     // console.log('hag',this.elementRef);
     // if(this.visibility) {this.visibility=false}
     // else this.visibility=true;
-    document.querySelector("p").classList.toggle("active");
     // גירסה א עובדת ופשוטה //
   this.visibility=(!this.visibility);
   console.log(this.visibility);
