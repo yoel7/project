@@ -5,6 +5,10 @@ export interface coin{
     market_data: {
         current_price: {
             usd:number
-        }}
-
+        }},
+         image: {
+            thumb: string,
+            small: string,
+            large: string
+        }
 }

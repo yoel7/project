@@ -3,16 +3,16 @@
       <h5 class="card-title">{{coin.name}}</h5>
       <h6 class="card-subtitle mb-2 text-muted">{{coin.symbol}}</h6>
       <p class="card-text">price : {{coin.market_data.current_price.usd}} $</p>
-      <button #button type="button" class="btn" (click)="click()">toggle</button>
-     <!-- <a href="#" class="card-link">Another link</a> -->
+      <button #button type="button" class="btn btn-dark" (click)="click()">More Info</button>
     </div>
   </div>
+  <!-- <a href="#" class="card-link">Another link</a> -->
   <!-- <div [ngStyle]={visibility:st()} #raedMore style="width: 16rem; "> -->
-<ng-container *ngIf='visibility'>
-    fff
+<ng-container *ngIf='visibility && more.image'>
+    
+    <img [src]="more.image.large" />
 </ng-container>
-<!-- </div> -->
-  <!-- קרא עוד -->
+  <!--  קרא עוד בגישת   ngbCollapse ng-bootstrap-->
  <!-- <button type="button" class="card-link" (click)="collapse.toggle()" [attr.aria-expanded]="!isCollapsed"
           aria-controls="collapseExample">
           raed more
