@@ -10,7 +10,7 @@ import { coin } from '../coin.model';
 export class CardCoinComponent implements OnInit {
   @Input() coin:coin;
   more:coin;
-  cmore:coin;
+  cacheMore :coin;
   // public isCollapsed = true;
   // display:string='none'
   visibility:boolean=false;
@@ -32,12 +32,12 @@ export class CardCoinComponent implements OnInit {
   if(this.visibility) this.get()
   }
   get(){
-    if (this.cmore) return;
+    if (this.cacheMore ) return;
     this.apiCoin.get(this.coin.id).subscribe((a)=>{
-      this.more=a;console.log(this.more);
-      this.cmore=a;
+      this.more=a;
+      this.cacheMore =a;
       setTimeout(() => {
-        this.cmore=undefined;
+        this.cacheMore =undefined;
       }, 120*1000);
       // עד כאן גירסה א   //
     })
