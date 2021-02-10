@@ -16,7 +16,7 @@ a=false
      
     var element = document.getElementById("myDIV");
     // עובד //
-    element.classList.toggle("mystyle");              עובד //
+    // element.classList.toggle("mystyle");            //  עובד //
     //   בצורה ארוכה יותר   עובד //
     // if (element.classList.length==0)
     // element.classList.add("mystyle");

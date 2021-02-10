@@ -28,7 +28,7 @@ export class CardCoinComponent implements OnInit {
     // else this.visibility=true;
     // גירסה א עובדת ופשוטה //
   this.visibility=(!this.visibility);
-  console.log(this.visibility);
+  // console.log(this.visibility);
   if(this.visibility) this.get()
   }
   get(){
