@@ -1,6 +1,9 @@
 
     <div class="container-fluid" *ngIf='coins'>
-       <app-card-coin class="col-3 float" *ngFor="let coin of coins" [coin]='coin'></app-card-coin>
+        <ng-container *ngFor="let coin of coins; let i=index">
+        
+       <app-card-coin *ngIf='i<10' class="col-3 float"  [coin]='coin'></app-card-coin>
+    </ng-container>
     </div>
 
     <!-- <app-tr111></app-tr111> -->
