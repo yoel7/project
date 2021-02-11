@@ -9,9 +9,11 @@ import { ApiCoingeckoService } from './api-coingecko.service';
 export class AppComponent implements OnInit {
   title = 'project';
   coins:any[];
+  
   constructor(private apiCoingeckoService : ApiCoingeckoService){
   }
   ngOnInit(): void {
      this.apiCoingeckoService.get().subscribe((a)=>this.coins=a);
   }
+ 
 }
