@@ -9,14 +9,11 @@ import { ApiCoingeckoService } from './api-coingecko.service';
 export class AppComponent implements OnInit {
   title = 'project';
   coins:any[];
-  checked=false;
+  
   constructor(private apiCoingeckoService : ApiCoingeckoService){
   }
   ngOnInit(): void {
-    //  this.apiCoingeckoService.get().subscribe((a)=>this.coins=a);
+     this.apiCoingeckoService.get().subscribe((a)=>this.coins=a);
   }
-  click(){
-     this.checked=!this.checked
-     
-  }
+ 
 }

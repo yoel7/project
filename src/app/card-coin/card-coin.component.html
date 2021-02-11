@@ -1,6 +1,15 @@
 <div class="card" style="width: 20rem;">
     <div class="card-body">
       <h5 class="card-title">{{coin.name}}</h5>
+      <!-- Default switch -->
+<div class="custom-control custom-switch">
+  <input type="checkbox" class="custom-control-input" id="customSwitches" [checked]='checked' (click)='click1()'>
+  <label class="custom-control-label" for="customSwitches"></label>
+</div>
+<div *ngIf='checked'>
+  <!-- חחחחחחחחחחחחחחחחח -->
+</div>
+<!-- Default switch -->
       <h6 class="card-subtitle mb-2 text-muted">{{coin.symbol}}</h6>
       <!-- <p class="card-text">price : {{coin.market_data.current_price.usd}} $</p> -->
       <button #button type="button" class="btn btn-dark" (click)="click()">More Info</button>

@@ -11,24 +11,17 @@ export class CardCoinComponent implements OnInit {
   @Input() coin:coin;
   more:coin;
   cacheMore :coin;
-  // public isCollapsed = true;
-  // display:string='none'
+ 
   visibility:boolean=false;
-  // a=document.getElementById("button")
+  checked=false;
+  
   constructor(public apiCoin:ApiCoingeckoService) { }
 
   ngOnInit(): void {
-    // this.a.addEventListener("click",this.click)
+    
   }
   click(){
-    // document.getElementById('raedMore').setAttribute("style", "display:none");
-    // document.getElementById('raedMore').style.visibility='visible';
-    // this.elementRef.nativeElement.
-    // console.log('hag',this.elementRef);
-    // if(this.visibility) {this.visibility=false}
-    // else this.visibility=true;
-    // גירסה א עובדת ופשוטה //
-  this.visibility=(!this.visibility);
+    this.visibility=(!this.visibility);
   if(this.visibility) this.get()
   }
   get(){
@@ -39,11 +32,31 @@ export class CardCoinComponent implements OnInit {
       setTimeout(() => {
         this.cacheMore =undefined;
       }, 120*1000);
-      // עד כאן גירסה א   //
+     
     })
   }
-  // st(){
+  
+  click1(){
+    this.checked=!this.checked
+    
+ }
+}
+// this.a.addEventListener("click",this.click)
+
+ // document.getElementById('raedMore').setAttribute("style", "display:none");
+    // document.getElementById('raedMore').style.visibility='visible';
+    // this.elementRef.nativeElement.
+    // console.log('hag',this.elementRef);
+    // if(this.visibility) {this.visibility=false}
+    // else this.visibility=true;
+
+    // st(){
   //   if(this.visibility) return 'visible'
   //   else return 'hidden';
   // }
-}
+
+
+   // public isCollapsed = true;
+  // display:string='none'
+
+  // a=document.getElementById("button")
