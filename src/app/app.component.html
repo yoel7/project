@@ -1,12 +1,13 @@
-
+<input #input placeholder="חיפוש" (keydown)="onKey($event)" (keyup)="onKey($event)" >
+<div>{{str}}</div>
     <div class="container-fluid" *ngIf='coins'>
         <ng-container *ngFor="let coin of coins; let i=index">
         
-       <app-card-coin *ngIf='i<10' class="col-3 float"  [coin]='coin'></app-card-coin>
+       <app-card-coin *ngIf='i<100' class="col-3 float"  [coin]='coin'></app-card-coin>
     </ng-container>
     </div>
 
-
+    <!-- [value]='onInput(input.value)' -->
 
     
 <!-- <p>ניווט</p>

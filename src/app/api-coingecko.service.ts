@@ -10,7 +10,7 @@ export class ApiCoingeckoService {
   
 constructor (public http: HttpClient) { }
 get(coin?: string):Observable<any>{
-  if (coin) return this.http.get(this.baseUrl+'/'+coin)
-  else return this.http.get(this.baseUrl)
+  if (coin) return this.http.get(this.baseUrl+'/'+coin,{reportProgress: true})
+  else return this.http.get(this.baseUrl,{reportProgress: true})
 }
 }

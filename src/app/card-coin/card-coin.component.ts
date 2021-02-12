@@ -7,19 +7,14 @@ import { coin } from '../coin.model';
   templateUrl: './card-coin.component.html',
   styleUrls: ['./card-coin.component.css']
 })
-export class CardCoinComponent implements OnInit {
+export class CardCoinComponent  {
   @Input() coin:coin;
   more:coin;
   cacheMore :coin;
- 
   visibility:boolean=false;
   checked=false;
   
   constructor(public apiCoin:ApiCoingeckoService) { }
-
-  ngOnInit(): void {
-    
-  }
   click(){
     this.visibility=(!this.visibility);
   if(this.visibility) this.get()
@@ -32,14 +27,11 @@ export class CardCoinComponent implements OnInit {
       setTimeout(() => {
         this.cacheMore =undefined;
       }, 120*1000);
-     
     })
   }
-  
   click1(){
     this.checked=!this.checked
-    
- }
+    }
 }
 // this.a.addEventListener("click",this.click)
 
