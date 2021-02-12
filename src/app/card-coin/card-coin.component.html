@@ -27,10 +27,16 @@
 <ng-container *ngIf='visibility'>
   <div class="card" style="width: 20rem; height: 10rem;">
     <div class="card-body">
-      <ng-container *ngIf='visibility && !more'><p>רגע מעדכנים</p></ng-container>
+      <ng-container *ngIf='nonUpdated'><small>לא מעודכן</small></ng-container>
+      <ng-container *ngIf='!more'>
+        <div class="spinner-border" role="status">
+          <span class="sr-only">Loading...</span>
+        </div>
+      </ng-container>  
+      <ng-container *ngIf='more'>  
         <h5 class="card-title">{{coin.name}}</h5>
         <img [src]="more.image.small" />
-
+      </ng-container>
     </div>
   </div>
     </ng-container>

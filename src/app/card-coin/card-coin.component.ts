@@ -13,6 +13,7 @@ export class CardCoinComponent  {
   cacheMore :boolean;
   visibility:boolean=false;
   checked:boolean=false;
+  nonUpdated=false
   info='More';
   constructor(public apiCoin:ApiCoingeckoService) { }
   click(){
@@ -27,12 +28,13 @@ export class CardCoinComponent  {
     if (this.cacheMore )  return;
     this.apiCoin.get(this.coin.id).subscribe((a)=>{
       this.more=a;
-      this.cacheMore =true;console.log('api');
+      this.cacheMore =true;this.nonUpdated=false;
       
       setTimeout(() => {
         this.cacheMore =undefined;console.log('קאש נמחק');
       }, 3*1000);
     })
+    setTimeout(()=>this.nonUpdated=true,3*1000)
   }
   click1(){
     this.checked=!this.checked;console.log(this.coin.name);
