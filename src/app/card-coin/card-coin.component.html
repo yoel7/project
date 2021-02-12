@@ -17,7 +17,7 @@
     </div>
   </div>
  <p class="">     {{coin.symbol}}        </p>
-  <!-- <p class="card-text">price : {{coin.market_data.current_price.usd}} $</p> -->
+  
   <button #button type="button" class="btn btn-dark" (click)="click()">{{info}} Info</button>
     
 </div>
@@ -34,6 +34,7 @@
       </ng-container>  
       <ng-container *ngIf='more'>  
         <h5 class="card-title">{{coin.name}}</h5>
+        <p class="card-text">price : {{coin.market_data.current_price.usd}} $</p>
         <img [src]="more.image.small" />
       </ng-container>
     </div>
