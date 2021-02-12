@@ -1,8 +1,11 @@
 #checkbox{
-    /* float: right; */
+    float: right;
     
     
 }
 .row{
     flex: auto;
+}
+.card{
+    margin-bottom: 2rem;
 }

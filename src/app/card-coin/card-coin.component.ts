@@ -12,7 +12,7 @@ export class CardCoinComponent  {
   more:coin;
   cacheMore :coin;
   visibility:boolean=false;
-  checked=false;
+  checked:boolean=false;
   
   constructor(public apiCoin:ApiCoingeckoService) { }
   click(){
@@ -30,7 +30,8 @@ export class CardCoinComponent  {
     })
   }
   click1(){
-    this.checked=!this.checked
+    this.checked=!this.checked;console.log(this.coin.name);
+    
     }
 }
 // this.a.addEventListener("click",this.click)
