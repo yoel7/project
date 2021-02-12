@@ -10,23 +10,28 @@ import { coin } from '../coin.model';
 export class CardCoinComponent  {
   @Input() coin:coin;
   more:coin;
-  cacheMore :coin;
+  cacheMore :boolean;
   visibility:boolean=false;
   checked:boolean=false;
-  
+  info='More';
   constructor(public apiCoin:ApiCoingeckoService) { }
   click(){
     this.visibility=(!this.visibility);
-  if(this.visibility) this.get()
+  if(!this.visibility) {
+    this.info='More';
+  if (!this.cacheMore) this.more=undefined;
+  }
+  else this.info='Hide';this.get();
   }
   get(){
-    if (this.cacheMore ) return;
+    if (this.cacheMore )  return;
     this.apiCoin.get(this.coin.id).subscribe((a)=>{
       this.more=a;
-      this.cacheMore =a;
+      this.cacheMore =true;console.log('api');
+      
       setTimeout(() => {
-        this.cacheMore =undefined;
-      }, 120*1000);
+        this.cacheMore =undefined;console.log('קאש נמחק');
+      }, 3*1000);
     })
   }
   click1(){
