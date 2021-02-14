@@ -1,4 +1,4 @@
-import { Component, ElementRef, Input, OnInit } from '@angular/core';
+import { Component, ElementRef, Input, OnInit, Output } from '@angular/core';
 import { ApiCoingeckoService } from '../api-coingecko.service';
 import { coin } from '../coin.model';
 

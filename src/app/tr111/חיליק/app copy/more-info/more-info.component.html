@@ -1,0 +1,12 @@
+<ng-container *ngFor="let item of infob">
+    <div *ngIf="!!item">
+        <div *ngIf="item.id==name">
+            <img src="{{item.image.large}}
+            " alt="">
+    ערך: {{item.market_data.current_price.usd}}$<br>
+      ערך: {{item.market_data.current_price.eur}}<br>
+     ערך: {{item.market_data.current_price.ils}}
+
+        </div>
+    </div>
+</ng-container>
