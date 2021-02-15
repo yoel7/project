@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output } from '@angular/core';
 import { ApiCoingeckoService } from '../api-coingecko.service';
 import { coin } from '../coin.model';
 import { Subscription } from 'rxjs';
@@ -9,20 +9,25 @@ import { Subscription } from 'rxjs';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  // coinsSubscription:Subscription
-  // coins:coin[];
+  
+  coinsSubscription:Subscription
+  coins:coin[];
   str='';
   constructor(private apiCoingeckoService : ApiCoingeckoService){
+  // this.coins=[];  
+  
   }
   ngOnInit(): void {
-    // this.apiCoingeckoService.getCoin().subscribe(
-    //   a=>this.coins=a);
+    this.coinsSubscription=this.apiCoingeckoService.getCoin().subscribe
+    (a=>this.apiCoingeckoService.coins=a);
+    // // this.apiCoingeckoService.getCoin().subscribe(
+    //   // a=>this.coins=a);
     //              //
     //  this.apiCoingeckoService.get().subscribe((a)=>{
-    //   this.coins=a;this._coins=a;
+    //   this.coins=a;
     //   })
-    // this.apiCoingeckoService.coins.
-    // 
+    // // this.apiCoingeckoService.coins.
+    // // 
     }
   onKey(event) { 
     this.str = event.target.value;
@@ -38,5 +43,7 @@ export class HomeComponent implements OnInit {
     else this.apiCoingeckoService.coins=this.apiCoingeckoService._coins;
     // this.apiCoingeckoService.update();
   }
-  
+  emit(){
+    this.apiCoingeckoService.update()
+  }
 }

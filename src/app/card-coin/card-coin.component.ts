@@ -1,4 +1,4 @@
-import { Component, ElementRef, Input, OnInit, Output } from '@angular/core';
+import { Component, ElementRef, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { ApiCoingeckoService } from '../api-coingecko.service';
 import { coin } from '../coin.model';
 
@@ -8,8 +8,10 @@ import { coin } from '../coin.model';
   styleUrls: ['./card-coin.component.css']
 })
 export class CardCoinComponent  {
-  checkBox ;
+  @Output() emit: EventEmitter<boolean>=new EventEmitter<boolean>();
+  
   @Input() coin:coin;
+
   more:coin;
   // co:any[]=[];
   cacheMore :boolean;
@@ -37,26 +39,48 @@ export class CardCoinComponent  {
     })
     setTimeout(()=>this.nonUpdated=true,3*1000)
   }
-  click1(){
-    // this.checked=!this.checked;
-    // if(this.checked) this.addFaiv()
-    this.checkBox= document.getElementById("customSwitches");
-    if(this.checkBox.checked) this.addFaiv()
-    else this.apiCoin.deleteFavorites(this.coin);
+  // click1(){
+  //   // this.checked=!this.checked;
+  //   // if(this.checked) this.addFaiv()
+  //   this.checkBox= document.getElementById("customSwitches");
+  //   // this.checkBox= .getElementById("customSwitches");
+  //   if(this.checkBox.checked) this.addFaiv()
+  //   else this.apiCoin.deleteFavorites(this.coin);
+  //   // else if (!this.checked) {
+  //   //   for(let i=0;i< this.co.length;i++){}
+  //   //   console.log(this.co);
+  //   // }
+  //   // else this.apiCoin.coinsFaiv.splice(this.coin);console.log(this.apiCoin.coinsFaiv);
+  //   // }
+  //   this.checked=this.checkBox.checked;
+  //   }
+    addFaiv(){
+      var a = this.apiCoin.addFaiv(this.coin)
+      if (a==false) { var b =window.confirm('אין אפשרות לבחור יותר מ-5 מטבעות, האם אתה מעוניין להסיר מטבע?');
+        if(b) this.apiCoin.coins=this.apiCoin.coinsFaiv;
+        
+    }
+    this.apiCoin.update();
+    }
+    myFunction(){
+      debugger
+      this.checked=!this.checked;
+      if(this.checked) this.addFaiv()
+      else {this.apiCoin.deleteFavorites(this.coin);
+        this.apiCoin.coins=this.apiCoin._coins;}
+    //   this.checkBox= document.getElementById("myCheck");
+    // // this.checkBox= .getElementById("customSwitches");
+    // if(this.checkBox.checked) this.addFaiv()
+    // else this.apiCoin.deleteFavorites(this.coin);
     // else if (!this.checked) {
     //   for(let i=0;i< this.co.length;i++){}
     //   console.log(this.co);
     // }
     // else this.apiCoin.coinsFaiv.splice(this.coin);console.log(this.apiCoin.coinsFaiv);
     // }
-    this.checked=this.checkBox.checked;
-    }
-    addFaiv(){
-      var a = this.apiCoin.addFaiv(this.coin)
-      if (a==false) {this.checkBox.checked=false; var b =window.confirm('אין אפשרות לבחור יותר מ-5 מטבעות, האם אתה מעוניין להסיר מטבע?');
-        if(b) this.apiCoin.coins=this.apiCoin.coinsFaiv;
-        
-    }
+    // this.checked=this.checkBox.checked;
+    this.apiCoin.update();
+    this.emit.emit(true)
     }
 }
 // this.a.addEventListener("click",this.click)
