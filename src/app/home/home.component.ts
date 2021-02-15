@@ -18,6 +18,8 @@ export class HomeComponent implements OnInit {
   
   }
   ngOnInit(): void {
+    console.log('vhh');
+    
     this.coinsSubscription=this.apiCoingeckoService.getCoin().subscribe
     (a=>this.apiCoingeckoService.coins=a);
     // // this.apiCoingeckoService.getCoin().subscribe(

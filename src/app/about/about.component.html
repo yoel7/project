@@ -13,3 +13,10 @@
         </form>
     </div>
 </nav>
+<h2>יואל פייבלזון</h2>
+<div class="container-fluid" *ngIf='apiCoingeckoService.coins'>
+    <ng-container *ngFor="let coin of apiCoingeckoService.coins; let i=index">
+         <!-- <app-card-coin *ngIf='i<100' class="col-3 float"  [coin]='coin' (emit)='emit()'></app-card-coin> -->
+         <app-card-coin *ngIf='i<100' class="col-3 float"  [coin]='coin'></app-card-coin>
+    </ng-container>
+</div>

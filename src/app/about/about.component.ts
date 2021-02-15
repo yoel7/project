@@ -1,15 +1,14 @@
 import { Component, OnInit } from '@angular/core';
+import { ApiCoingeckoService } from '../api-coingecko.service';
 
 @Component({
   selector: 'app-about',
   templateUrl: './about.component.html',
   styleUrls: ['./about.component.css']
 })
-export class AboutComponent implements OnInit {
+export class AboutComponent  {
 
-  constructor() { }
+  constructor(public apiCoingeckoService:ApiCoingeckoService) { }
 
-  ngOnInit(): void {
-  }
 
 }
