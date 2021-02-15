@@ -13,7 +13,7 @@ export class HomeComponent implements OnInit {
   coinsSubscription:Subscription
   coins:coin[];
   str='';
-  constructor(private apiCoingeckoService : ApiCoingeckoService){
+  constructor(public apiCoingeckoService : ApiCoingeckoService){
   // this.coins=[];  
   
   }
