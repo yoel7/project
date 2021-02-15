@@ -11,4 +11,5 @@ export interface coin{
             small: string,
             large: string
         }
+        add:boolean
 }

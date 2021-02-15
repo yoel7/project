@@ -1,0 +1,43 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+           <li class="nav-item active">
+                <a class="nav-link" [routerLink]="['/']">Home <span class="sr-only">(current)</span></a>
+           </li>
+           <li class="nav-item active">
+               <a class="nav-link" [routerLink]="['/about']">About</a>
+           </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" (keydown)="onKey($event)" (keyup)="onKey($event)">
+        </form>
+    </div>
+</nav>
+<!--  -->
+<div class="container-fluid" *ngIf='apiCoingeckoService.coins'>
+    <ng-container *ngFor="let coin of apiCoingeckoService.coins; let i=index">
+         <app-card-coin *ngIf='i<100' class="col-3 float"  [coin]='coin'></app-card-coin>
+    </ng-container>
+</div>
+  
+      <!-- [value]='onInput(input.value)' -->
+  
+      
+  <!-- <p>ניווט</p>
+  <p>כותרת עם תמונה</p>
+  <div style="width: 500px;">
+      <ngb-accordion #acc="ngbAccordion">
+      <ngb-panel id="toggle-1" title="First panel">
+        <ng-template ngbPanelContent>111111
+        </ng-template>
+      </ngb-panel>
+      <ngb-panel id="toggle-2" title="Second">
+        <ng-template ngbPanelContent>22222
+        </ng-template>
+      </ngb-panel>
+    </ngb-accordion>
+  </div>
+    <hr/>
+    <button class="btn btn-sm btn-outline-primary mr-2" (click)="acc.toggle('toggle-1')">Toggle first</button>
+    <button class="btn btn-sm btn-outline-primary mr-2" (click)="acc.toggle('toggle-2')">Toggle second</button>
+     -->

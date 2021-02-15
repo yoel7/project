@@ -8,25 +8,8 @@ import { coin } from './coin.model';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit {
+export class AppComponent  {
   title = 'project';
-  coins:coin[];
-  _coins:coin[];
-  str='';
-  constructor(private apiCoingeckoService : ApiCoingeckoService){
-  }
-  ngOnInit(): void {
-     this.apiCoingeckoService.get().subscribe((a)=>{
-      this.coins=a;this._coins=a;
-      })
-  }
-  onKey(event) { 
-    this.str = event.target.value;
-    this.coins=this._coins.filter(b=>b.symbol.startsWith(this.str))
-  }
-  // onInput(value) {
-  //   console.log(value)
-
-  // }
+ 
 }
 
