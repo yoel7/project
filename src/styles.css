@@ -1,1 +1,21 @@
 /* You can add global styles to this file, and also import other style files */
+.float{
+    float: left;
+
+}
+/* .container{
+    flex-direction: row;
+     display: flex; 
+} */
+#checkbox{
+    float: right;
+    
+    
+}
+.row{
+    flex: auto;
+}
+.card{
+    margin-bottom: 2rem;
+    padding: 1px;
+}
