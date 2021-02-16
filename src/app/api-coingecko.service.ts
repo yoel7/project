@@ -8,12 +8,12 @@ import { coin } from './coin.model';
 })
 export class ApiCoingeckoService {
   baseUrl =  'https://api.coingecko.com/api/v3/coins';
-  coinsS: BehaviorSubject<coin[]>;
-  // coinsSubscription:Subscription;
+  // coinsS: BehaviorSubject<coin[]>;
   coins:coin[];
-  // coinsFaiv:coin[]=[];
   _coins:coin[];
-  coinsFaivo:number=0;
+  // coinsSubscription:Subscription;
+  // coinsFaiv:coin[]=[];
+  // coinsFaivo:number=0;
   // addfaivb=true;
 constructor (public http: HttpClient) {
   this.get().subscribe((a)=>{
@@ -22,7 +22,7 @@ constructor (public http: HttpClient) {
     // this._coins.forEach(b=>this.favorites(b.symbol,false));
     this._coins.map(a=>(a.add=false));
     this.coins.map(a=>(a.add=false));
-    this.coinsS=new BehaviorSubject<coin[]>(this._coins);
+    // this.coinsS=new BehaviorSubject<coin[]>(this._coins);
     // this.coinsSubscription=this.getCoin().subscribe(a=>this.coins=a);
     });
   }
@@ -35,17 +35,18 @@ favorites(symbol:string,add:boolean){
   this._coins[a].add=add;
   this.coins[a].add=add;
 }
-addFaiv(coinSymbol){
+addFav(coinSymbol){
   if (this._coins.filter(a=>a.add).length > 4) return false; 
   else  {
-    this.favorites(coinSymbol,true);this.coinsFaivo++;console.log(this.coinsFaivo);
+    this.favorites(coinSymbol,true);
+    // this.coinsFaivo++;console.log(this.coinsFaivo);
      return true;
   }
 }
-  deleteFavorites(coinSymbol){
+  deleteFav(coinSymbol){
     this.favorites(coinSymbol,false)
     this.coins=this._coins;
-    this.coinsFaivo--;
+    // this.coinsFaivo--;
     // this.update();
   }
 // addFaiv(coin){

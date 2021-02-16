@@ -38,7 +38,7 @@ export class CardCoinComponent  {
   }
     addFaiv(){
       // debugger;
-      var a = this.apiCoingeckoService.addFaiv(this.coin.symbol)
+      var a = this.apiCoingeckoService.addFav(this.coin.symbol)
       if (a==false) {
         var b=window.confirm('אין אפשרות לבחור יותר מ-5 מטבעות, האם אתה מעוניין להסיר מטבע?');
         if(b)  {this.apiCoingeckoService.coins=this.apiCoingeckoService._coins.filter(a=>a.add);}
@@ -50,8 +50,8 @@ export class CardCoinComponent  {
        this.apiCoingeckoService._coins.filter(a=>a.add),'כניסה');
       this.checked=!this.checked;
       if (!this.checked) {
-         this.apiCoingeckoService.coins=this.apiCoingeckoService._coins;
-          this.apiCoingeckoService.deleteFavorites(this.coin.symbol);
+        //  this.apiCoingeckoService.coins=this.apiCoingeckoService._coins;
+          this.apiCoingeckoService.deleteFav(this.coin.symbol);
       } else this.addFaiv();
       console.log(
         this.apiCoingeckoService._coins.filter(a=>a.add),'יציאה');
