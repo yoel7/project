@@ -4,7 +4,10 @@ export interface coin{
     symbol:string,
     market_data: {
         current_price: {
-            usd:number
+            usd:number,
+            eur:number,
+            ils:number
+
         }},
          image: {
             thumb: string,

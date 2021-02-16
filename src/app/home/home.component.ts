@@ -9,31 +9,19 @@ import { Subscription } from 'rxjs';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  
   coinsSubscription:Subscription
   coins:coin[];
   str='';
   constructor(public apiCoingeckoService : ApiCoingeckoService){
   // this.coins=[];  
-  
   }
   ngOnInit(): void {
-    console.log('vhh');
-    
-    this.coinsSubscription=this.apiCoingeckoService.getCoin().subscribe
-    (a=>this.apiCoingeckoService.coins=a);
-    // // this.apiCoingeckoService.getCoin().subscribe(
-    //   // a=>this.coins=a);
-    //              //
-    //  this.apiCoingeckoService.get().subscribe((a)=>{
-    //   this.coins=a;
-    //   })
-    // // this.apiCoingeckoService.coins.
-    // // 
+    //  this.apiCoingeckoService.getCoin().subscribe(
+    //  a=>this.coins=a);
     }
   onKey(event) { 
     this.str = event.target.value;
-    // יותר אלגנטי בהרבה     //
+    // יותר אלגנטי      //
     // this.apiCoingeckoService.coins=this.apiCoingeckoService._coins.filter
     // (b=>b.symbol.startsWith(this.str))
     //                    //
@@ -45,7 +33,8 @@ export class HomeComponent implements OnInit {
     else this.apiCoingeckoService.coins=this.apiCoingeckoService._coins;
     // this.apiCoingeckoService.update();
   }
+ 
   emit(){
-    this.apiCoingeckoService.update()
+    // this.apiCoingeckoService.update()
   }
 }

@@ -1,23 +1,19 @@
-<div class="card" style="width: 20rem; height: 10rem;">
+<div *ngIf='!apiCoingeckoService.coins'></div>
+<div class="card" style="width: 20rem; height: 13rem;">
   <div class="card-body">
     <div class="justify-content-between">
       <!-- <h5 class="card-title">{{coin.name}}</h5> -->
 
         <!-- Default switch -->
-      <!-- <div #checkbox class="custom-control custom-switch form-inline">
-        <input type="checkbox" class="custom-control-input" id="customSwitches" [checked]='checked' (click)='click1()'>
-        <label class="custom-control-label" for="customSwitches"></label>
-      </div> -->
-      <!-- <form class="inline my-2 my-lg-0">
-        <div #checkbox class="custom-control custom-switch ">
-          <input type="checkbox" class="custom-control-input" id="customSwitches"  (click)='click1()'>
-           [checked]='checked' -->
-          <!-- <label class="custom-control-label" for="customSwitches"></label> -->
-        
-        <!-- <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" (keydown)="onKey($event)" (keyup)="onKey($event)"> -->
-      <!-- </form> -->
-      <!-- ניסיון -->
-  <input type="checkbox" id="myCheck" [checked]='checked' (click)="myFunction()">   
+        <!-- <input type="checkbox" class="custom-control-input" id="customSwitches" [checked]='checked' (click)='click1()'> -->
+      <div #checkbox class="custom-control custom-switch form-inline"> 
+        <input type="checkbox"  class="custom-control-input " [id]="coin.symbol"  [checked]='checked' (click)='myFunction()'>
+        <label class="custom-control-label checked" [for]="coin.symbol"></label>
+        </div> 
+        <!-- <input type="checkbox"   [id]="coin.symbol"  [checked]='checked' (click)='myFunction()'> -->
+      <!-- (click)='checkedHtml($event)' -->
+      <!-- [ngClass]="{'::before': true}" -->
+      
   <p class="">     {{coin.symbol}}        </p>
   <button #button type="button" class="btn btn-dark" (click)="click()">{{info}} Info</button>
 
@@ -28,7 +24,7 @@
   
  
 <ng-container *ngIf='visibility'>
-  <div class="card" style="width: 20rem; height: 10rem;">
+  <div class="card" style="width: 20rem; height: 13rem;">
     <div class="card-body">
       <ng-container *ngIf='nonUpdated'>
         <small>לא מעודכן</small>
@@ -41,6 +37,10 @@
       <ng-container *ngIf='more'>  
         <h5 class="card-title">{{coin.name}}</h5>
         <p class="card-text">price : {{coin.market_data.current_price.usd}} $</p>
+        <p class="card-text">price : {{coin.market_data.current_price.eur}} יורו</p>
+        <p class="card-text">price : {{coin.market_data.current_price.ils}} </p>
+       
+
         <img [src]="more.image.small" />
       </ng-container>
     </div>
@@ -69,3 +69,14 @@
     חחחחחחחחחחחחחחחחח
    </div>  -->
   <!-- <input type="checkbox" [checked]='checked' (click)='click1()'> -->
+
+  <!-- <form class="inline my-2 my-lg-0">
+        <div #checkbox class="custom-control custom-switch ">
+          <input type="checkbox" class="custom-control-input" id="customSwitches"  (click)='click1()'>
+           [checked]='checked' -->
+          <!-- <label class="custom-control-label" for="customSwitches"></label> -->
+        
+        <!-- <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" (keydown)="onKey($event)" (keyup)="onKey($event)"> -->
+      <!-- </form> -->
+      <!-- ניסיון -->
+  <!-- <input type="checkbox"  [checked]='checked' (click)="myFunction()">    -->

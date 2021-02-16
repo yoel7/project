@@ -8,19 +8,19 @@ import { coin } from '../coin.model';
   styleUrls: ['./card-coin.component.css']
 })
 export class CardCoinComponent  {
-  @Output() emit: EventEmitter<boolean>=new EventEmitter<boolean>();
-  
+  // @Output() emit: EventEmitter<boolean>=new EventEmitter<boolean>();
   @Input() coin:coin;
-
+  @Input() checked:boolean;
   more:coin;
-  // co:any[]=[];
   cacheMore :boolean;
   visibility:boolean=false;
-  checked:boolean=false;
+  // checked:boolean=false;
   nonUpdated=false
   info='More';
-  constructor(public apiCoin:ApiCoingeckoService) {}
+  // disabled=false;
+  constructor(public apiCoingeckoService:ApiCoingeckoService) {}
   click(){
+    // this.checkedF();
       this.visibility=(!this.visibility);
     if(!this.visibility) {
         this.info='More';
@@ -29,7 +29,7 @@ export class CardCoinComponent  {
   }
   getMore(){
     if (this.cacheMore )  return;
-    this.apiCoin.get(this.coin.id).subscribe((a)=>{
+    this.apiCoingeckoService.get(this.coin.id).subscribe((a)=>{
       this.more=a;
       this.cacheMore =true;this.nonUpdated=false;
       
@@ -39,48 +39,58 @@ export class CardCoinComponent  {
     })
     setTimeout(()=>this.nonUpdated=true,3*1000)
   }
-  // click1(){
-  //   // this.checked=!this.checked;
-  //   // if(this.checked) this.addFaiv()
-  //   this.checkBox= document.getElementById("customSwitches");
-  //   // this.checkBox= .getElementById("customSwitches");
-  //   if(this.checkBox.checked) this.addFaiv()
-  //   else this.apiCoin.deleteFavorites(this.coin);
-  //   // else if (!this.checked) {
-  //   //   for(let i=0;i< this.co.length;i++){}
-  //   //   console.log(this.co);
-  //   // }
-  //   // else this.apiCoin.coinsFaiv.splice(this.coin);console.log(this.apiCoin.coinsFaiv);
-  //   // }
-  //   this.checked=this.checkBox.checked;
-  //   }
     addFaiv(){
-      var a = this.apiCoin.addFaiv(this.coin)
-      if (a==false) { var b =window.confirm('אין אפשרות לבחור יותר מ-5 מטבעות, האם אתה מעוניין להסיר מטבע?');
-        if(b) this.apiCoin.coins=this.apiCoin.coinsFaiv;
-        
+      var a = this.apiCoingeckoService.addFaiv(this.coin)
+      if (a==false) { console.log(this.checked,'a==false');
+        this.checked=false;
+        var b =window.confirm('אין אפשרות לבחור יותר מ-5 מטבעות, האם אתה מעוניין להסיר מטבע?');
+        // if(b) this.apiCoingeckoService.coins=this.apiCoingeckoService._coins.filter(a=>(a.add=true))
+        if(b) {
+          this.apiCoingeckoService.coins=this.apiCoingeckoService.coinsFaiv;console.log(this.checked,'checked -b=t');}
+        if (!b) {
+          this.checked=false;console.log(this.checked,'checked !b');this.constructor();}
+        // this.checkedF();
+      }
+    // this.apiCoingeckoService.update();
     }
-    this.apiCoin.update();
+    checkedF(){
+      this.checked=!this.checked; 
+    }
+    checkedHtml(a){
+      // return this.checked; 
+      console.log(a);
+      
     }
     myFunction(){
-      debugger
+      console.log(this.checked,'כניסה');
+      // debugger
+      //    version 1
       this.checked=!this.checked;
-      if(this.checked) this.addFaiv()
-      else {this.apiCoin.deleteFavorites(this.coin);
-        this.apiCoin.coins=this.apiCoin._coins;}
+      // if (!this.checked) {
+      //     this.apiCoingeckoService.coins=this.apiCoingeckoService._coins;
+      //     this.apiCoingeckoService.deleteFavorites(this.coin);
+      // } else this.addFaiv()
+      //    version 2
+      if (!this.checked) {
+        console.log(this.checked,'מחיקה');
+          this.apiCoingeckoService.coins=this.apiCoingeckoService._coins;
+          this.apiCoingeckoService.deleteFavorites(this.coin);
+      } else { this.addFaiv();console.log(this.checked,'add');}
+        // 
+
     //   this.checkBox= document.getElementById("myCheck");
     // // this.checkBox= .getElementById("customSwitches");
     // if(this.checkBox.checked) this.addFaiv()
-    // else this.apiCoin.deleteFavorites(this.coin);
+    // else this.apiCoingeckoService.deleteFavorites(this.coin);
     // else if (!this.checked) {
     //   for(let i=0;i< this.co.length;i++){}
     //   console.log(this.co);
     // }
-    // else this.apiCoin.coinsFaiv.splice(this.coin);console.log(this.apiCoin.coinsFaiv);
+    // else this.apiCoingeckoService.coinsFaiv.splice(this.coin);console.log(this.apiCoingeckoService.coinsFaiv);
     // }
     // this.checked=this.checkBox.checked;
-    this.apiCoin.update();
-    this.emit.emit(true)
+    // this.apiCoingeckoService.update();
+    // this.emit.emit(true)
     }
 }
 // this.a.addEventListener("click",this.click)

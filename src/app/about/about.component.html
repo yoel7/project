@@ -9,12 +9,14 @@
            </li>
         </ul>
         <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" >
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" (keydown)="onKey($event)" (keyup)="onKey($event)">
         </form>
     </div>
 </nav>
-<h2>יואל פייבלזון</h2>
-<div class="container-fluid" *ngIf='apiCoingeckoService.coins'>
+<div *ngIf='!view'>
+    <h2>יואל פייבלזון</h2>
+</div>
+<div class="container-fluid" *ngIf='view && apiCoingeckoService.coins'>
     <ng-container *ngFor="let coin of apiCoingeckoService.coins; let i=index">
          <!-- <app-card-coin *ngIf='i<100' class="col-3 float"  [coin]='coin' (emit)='emit()'></app-card-coin> -->
          <app-card-coin *ngIf='i<100' class="col-3 float"  [coin]='coin'></app-card-coin>

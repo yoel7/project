@@ -13,16 +13,22 @@
         </form>
     </div>
 </nav>
-<!--  -->
+<!-- אין קליטה -->
+<div *ngIf='!apiCoingeckoService.coins' class="spinner-border" role="status">
+  <span class="sr-only">Loading...</span>
+</div>
+<!-- אין קליטה -->
 <div class="container-fluid" *ngIf='apiCoingeckoService.coins'>
     <ng-container *ngFor="let coin of apiCoingeckoService.coins; let i=index">
-         <app-card-coin *ngIf='i<100' class="col-3 float"  [coin]='coin' (emit)='emit()'></app-card-coin>
+         <!-- <app-card-coin *ngIf='i<100' class="col-12 col-md-4 col-lg-3 float"  [coin]='coin' (emit)='emit()'></app-card-coin> -->
+         <app-card-coin *ngIf='i<100' class="col-12 col-md-4 col-lg-3 float"  [coin]='coin' [checked]='coin.add' (emit)='emit()'></app-card-coin>
     </ng-container>
 </div>
   
-      <!-- [value]='onInput(input.value)' -->
-  
       
+
+  
+     <!-- [value]='onInput(input.value)' --> 
   <!-- <p>ניווט</p>
   <p>כותרת עם תמונה</p>
   <div style="width: 500px;">
