@@ -14,7 +14,12 @@
     </div>
 </nav>
 <div *ngIf='!view'>
-    <h2>יואל פייבלזון</h2>
+<pre>
+                                      ע"י יואל פייבלזון
+                                            שלום רבי יעקב  
+                           אני מקווה שאהבת את הפרוייקט.
+                                                אני אהבתי
+</pre>
 </div>
 <div class="container-fluid" *ngIf='view && apiCoingeckoService.coins'>
     <ng-container *ngFor="let coin of apiCoingeckoService.coins; let i=index">
