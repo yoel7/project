@@ -1,3 +1,4 @@
+<div class=" fixed-background">
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
@@ -13,8 +14,8 @@
         </form>
     </div>
 </nav>
- <div *ngIf='!view' class="img-about float">
-    <div style="direction: ltr;"> 
+ <div *ngIf='!view' >
+    <div > 
  <pre>
 
                         
@@ -45,4 +46,5 @@
          <!-- <app-card-coin *ngIf='i<100' class="col-3 float"  [coin]='coin' (emit)='emit()'></app-card-coin> -->
          <app-card-coin *ngIf='i<100' class="col-3 float"  [coin]='coin'></app-card-coin>
     </ng-container>
+</div>
 </div>
