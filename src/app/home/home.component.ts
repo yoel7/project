@@ -9,7 +9,7 @@ import { Subscription } from 'rxjs';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  coinsSubscription:Subscription
+  // coinsSubscription:Subscription
   coins:coin[];
   str='';
   constructor(public apiCoingeckoService : ApiCoingeckoService){

@@ -1,30 +1,22 @@
-<div *ngIf='!apiCoingeckoService.coins'></div>
-<div class="card" style="width: 20rem; height: 13rem;">
-  <div class="card-body">
-    <div class="justify-content-between">
-      <!-- <h5 class="card-title">{{coin.name}}</h5> -->
-
-        <!-- Default switch -->
-        <!-- <input type="checkbox" class="custom-control-input" id="customSwitches" [checked]='checked' (click)='click1()'> -->
-      <div #checkbox class="custom-control custom-switch form-inline"> 
-        <input type="checkbox"  class="custom-control-input " [id]="coin.symbol"  [checked]='checked' (click)='myFunction()'>
-        <label class="custom-control-label checked" [for]="coin.symbol"></label>
+<!-- <div *ngIf='!apiCoingeckoService.coins'> -->
+  <!-- <div class="card" > -->
+  <div class="card">
+    <div class="card-body">
+      <div class="justify-content-between">
+        <h5 class="card-title">{{coin.name}}</h5>
+        <p class="card-text">    {{coin.symbol}}        </p>
+        <p class="card-text">price : {{coin.market_data.current_price.usd  | currency}}</p>
+        <div #checkbox class="custom-control custom-switch form-inline"> 
+          <input type="checkbox"  class="custom-control-input " [id]="coin.symbol"  [checked]='checked' (click)='myFunction()'>
+          <label class="custom-control-label checked" [for]="coin.symbol"></label>
         </div> 
-        <!-- <input type="checkbox"   [id]="coin.symbol"  [checked]='checked' (click)='myFunction()'> -->
-      <!-- (click)='checkedHtml($event)' -->
-      <!-- [ngClass]="{'::before': true}" -->
-      
-  <p class="">     {{coin.symbol}}        </p>
-  <button #button type="button" class="btn btn-dark" (click)="click()">{{info}} Info</button>
-
-
-  </div>  
-    </div>
+        <button #button type="button" class="btn btn-dark" (click)="click()">{{info}} Info</button>
+      </div>
+    </div>  
   </div>
-  
- 
+<!-- </div>   -->
 <ng-container *ngIf='visibility'>
-  <div class="card" style="width: 20rem; height: 13rem;">
+  <div class="card" >
     <div class="card-body">
       <ng-container *ngIf='nonUpdated'>
         <small>לא מעודכן</small>
@@ -35,48 +27,10 @@
         </div>
       </ng-container>  
       <ng-container *ngIf='more'>  
-        <h5 class="card-title">{{coin.name}}</h5>
-        <p class="card-text">price : {{coin.market_data.current_price.usd}} $</p>
-        <p class="card-text">price : {{coin.market_data.current_price.eur}} יורו</p>
-        <p class="card-text">price : {{coin.market_data.current_price.ils}} </p>
-       
-
-        <img [src]="more.image.small" />
+        <p class="card-text">EUR : {{coin.market_data.current_price.eur | currency:'EUR'}}</p>
+        <p class="card-text">ILS : {{coin.market_data.current_price.ils | currency:'ILS'}}</p>
+       <img [src]="more.image.small" />
       </ng-container>
     </div>
   </div>
 </ng-container>
-  <!--  קרא עוד בגישת   ngbCollapse ng-bootstrap-->
- <!-- <button type="button" class="card-link" (click)="collapse.toggle()" [attr.aria-expanded]="!isCollapsed"
-          aria-controls="collapseExample">
-          raed more
-        </button>
-       -->
-<!-- <div style="width: 16rem;" #collapse="ngbCollapse" [(ngbCollapse)]="isCollapsed">
-    <div class="card">
-      <div class="card-body">
-        You can collapse this card by clicking Toggle
-      </div>
-    </div>
-</div> -->
-
-
-<!-- <a href="#" class="card-link">Another link</a> -->
-  <!-- <div [ngStyle]={visibility:st()} #raedMore style="width: 16rem; "> -->
-
-
-     <!-- <div *ngIf='checked'>
-    חחחחחחחחחחחחחחחחח
-   </div>  -->
-  <!-- <input type="checkbox" [checked]='checked' (click)='click1()'> -->
-
-  <!-- <form class="inline my-2 my-lg-0">
-        <div #checkbox class="custom-control custom-switch ">
-          <input type="checkbox" class="custom-control-input" id="customSwitches"  (click)='click1()'>
-           [checked]='checked' -->
-          <!-- <label class="custom-control-label" for="customSwitches"></label> -->
-        
-        <!-- <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" (keydown)="onKey($event)" (keyup)="onKey($event)"> -->
-      <!-- </form> -->
-      <!-- ניסיון -->
-  <!-- <input type="checkbox"  [checked]='checked' (click)="myFunction()">    -->

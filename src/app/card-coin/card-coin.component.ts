@@ -53,8 +53,8 @@ export class CardCoinComponent  {
         //  this.apiCoingeckoService.coins=this.apiCoingeckoService._coins;
           this.apiCoingeckoService.deleteFav(this.coin.symbol);
       } else this.addFaiv();
-      console.log(
-        this.apiCoingeckoService._coins.filter(a=>a.add),'יציאה');
+      // console.log(                   מחיקה
+      //   this.apiCoingeckoService._coins.filter(a=>a.add),'יציאה');
        
     }
 }
