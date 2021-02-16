@@ -32,12 +32,11 @@ export class CardCoinComponent  {
       this.cacheMore =true;this.nonUpdated=false;
       setTimeout(() => {
         this.cacheMore =undefined;
-      }, 3*1000);
+      }, 120*1000);
     })
-    setTimeout(()=>this.nonUpdated=true,3*1000)
+    setTimeout(()=>this.nonUpdated=true,120*1000)
   }
     addFaiv(){
-      // debugger;
       var a = this.apiCoingeckoService.addFav(this.coin.symbol)
       if (a==false) {
         var b=window.confirm('אין אפשרות לבחור יותר מ-5 מטבעות, האם אתה מעוניין להסיר מטבע?');

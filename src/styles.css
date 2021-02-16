@@ -5,13 +5,14 @@
 }
 .card{
     margin-bottom: 2rem;
-    /* margin-left: 1rem; */
+    /* margin-left: 2rem; */
     padding: 1px;
     
 }
 @media (min-width: 1220px){
     .card{
         width: 19rem; height: 13rem;
+        /* margin: 2rem; */
     }
 }
 @media (min-width: 992px){
