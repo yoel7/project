@@ -9,10 +9,12 @@
     padding: 1px;
     
 }
-@media (min-width: 992px){
-.card{
-    width: 19rem; height: 13rem;
+@media (min-width: 1220px){
+    .card{
+        width: 19rem; height: 13rem;
+    }
 }
+@media (min-width: 992px){
 .fixed-background {
     background-image: url("https://i.stack.imgur.com/90nGa.jpg");
     height: 3600px;
