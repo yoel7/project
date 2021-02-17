@@ -17,7 +17,8 @@
 }
 @media (min-width: 992px){
 .fixed-background {
-    background-image: url("https://i.stack.imgur.com/90nGa.jpg");
+    background-image: url("assets/90nGa.jpg");
+    /* background-image: url("assets/IMG_20210201_173637.jpg"); */
     height: 3600px;
     background-attachment: fixed;
     background-position: center center;
