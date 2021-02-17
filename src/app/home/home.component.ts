@@ -22,16 +22,16 @@ export class HomeComponent implements OnInit {
   onKey(event) { 
     this.str = event.target.value;
     // יותר אלגנטי      //
-    // this.apiCoingeckoService.coins=this.apiCoingeckoService._coins.filter
-    // (b=>b.symbol.startsWith(this.str))
-    //                    //
-    if(this.str.length>0){
     this.apiCoingeckoService.coins=this.apiCoingeckoService._coins.filter
-    (b=>b.symbol==this.str);
-    // this.apiCoingeckoService.update();
-    } 
-    else this.apiCoingeckoService.coins=this.apiCoingeckoService._coins;
-    // this.apiCoingeckoService.update();
+    (b=>b.symbol.startsWith(this.str))
+    //                    //
+    // if(this.str.length>0){
+    // this.apiCoingeckoService.coins=this.apiCoingeckoService._coins.filter
+    // (b=>b.symbol==this.str);
+    // // this.apiCoingeckoService.update();
+    // } 
+    // else this.apiCoingeckoService.coins=this.apiCoingeckoService._coins;
+    // // this.apiCoingeckoService.update();
   }
  
   emit(){

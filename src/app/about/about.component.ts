@@ -19,7 +19,8 @@ view:boolean=false;
     if(this.str.length>0){
     this.view=true;
     this.apiCoingeckoService.coins=this.apiCoingeckoService._coins.filter
-    (b=>b.symbol==this.str);
+    (b=>b.symbol.startsWith(this.str))
+    // (b=>b.symbol==this.str);
     // this.apiCoingeckoService.update();
     } 
     else {this.view=false;
