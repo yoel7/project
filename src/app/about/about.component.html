@@ -1,4 +1,20 @@
 <div class="container-fluid fixed-background">
+    <nav class="navbar navbar-light bg-light ">
+    <!-- <nav class="navbar navbar-light bg-light sticky-top"> -->
+            <ul class="navbar-nav navbar-expand mr-auto">
+              <li class="nav-item active">
+                    <a class="nav-link" [routerLink]="['/']">Home <span class="sr-only">(current)</span></a>
+              </li>
+              <li class="nav-item active">
+                  <a class="nav-link" [routerLink]="['/about']">About</a>
+              </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" (keydown)="onKey($event)" (keyup)="onKey($event)">
+            </form>
+         </nav>
+  
+<!-- <div class="container-fluid fixed-background">
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav navbar-expand mr-auto">
@@ -13,7 +29,7 @@
             <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" (keydown)="onKey($event)" (keyup)="onKey($event)">
         </form>
     </div>
-</nav>
+</nav> -->
  <div *ngIf='!view' >
     <div > 
  <pre>
