@@ -12,10 +12,10 @@ import { FormsModule } from '@angular/forms';
 import { AboutComponent } from './about/about.component';
 import { HomeComponent } from './home/home.component';
 
-const routes: Routes = [
-  { path: '', component: HomeComponent },
-  { path: 'about', component: AboutComponent }
-  ];
+// const routes: Routes = [
+//   { path: '', component: HomeComponent },
+//   { path: 'about', component: AboutComponent }
+//   ];
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,15 +24,15 @@ const routes: Routes = [
     HomeComponent
   ],
   imports: [
-    RouterModule.forRoot(routes),
+    // RouterModule.forRoot(routes),
     BrowserModule,
     NgbModule,
     FormsModule,
     HttpClientModule
   ],
-  
+  providers: [],
   bootstrap: [AppComponent],
-  providers: [{ provide: LocationStrategy, useClass: PathLocationStrategy }]
+  // providers: [{ provide: LocationStrategy, useClass: PathLocationStrategy }]
 
 })
 export class AppModule { }

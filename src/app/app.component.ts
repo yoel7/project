@@ -10,6 +10,14 @@ import { coin } from './coin.model';
 })
 export class AppComponent  {
   title = 'project';
- 
+  home = true;
+  about = false;
+  switchB:boolean;
+  switch(){
+    this.switchB=this.home;
+    this.home=this.about;
+    this.about=this.switchB;
+
+  }
 }
 

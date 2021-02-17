@@ -1,4 +1,5 @@
-
+<app-home *ngIf="home" (emit)="switch()"></app-home>
+<app-about *ngIf="about" (emit)="switch()"></app-about>
 <!-- <main class="container"> -->
-<router-outlet></router-outlet>
+<!-- <router-outlet></router-outlet> -->
 <!-- </main> -->

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { ApiCoingeckoService } from '../api-coingecko.service';
 
 @Component({
@@ -7,6 +7,7 @@ import { ApiCoingeckoService } from '../api-coingecko.service';
   styleUrls: ['./about.component.css']
 })
 export class AboutComponent  {
+@Output() emit: EventEmitter<boolean>=new EventEmitter<boolean>();
 str:string='';
 view:boolean=false;
   constructor(public apiCoingeckoService:ApiCoingeckoService) { }
@@ -19,12 +20,17 @@ view:boolean=false;
     if(this.str.length>0){
     this.view=true;
     this.apiCoingeckoService.coins=this.apiCoingeckoService._coins.filter
-    (b=>b.symbol==this.str);
+     (b=>b.symbol.startsWith(this.str))
+    //                    //
+    // this.apiCoingeckoService.coins=this.apiCoingeckoService._coins.filter
+    // (b=>b.symbol==this.str);
     // this.apiCoingeckoService.update();
     } 
     else {this.view=false;
     this.apiCoingeckoService.coins=this.apiCoingeckoService._coins;}
     // this.apiCoingeckoService.update();
   }
-
+  emitF(){
+    this.emit.emit()
+  }
 }
