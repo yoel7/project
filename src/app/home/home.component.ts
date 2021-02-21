@@ -9,6 +9,7 @@ import { Subscription } from 'rxjs';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
+  
   // coinsSubscription:Subscription
   coins:coin[];
   str='';
@@ -33,7 +34,9 @@ export class HomeComponent implements OnInit {
     // else this.apiCoingeckoService.coins=this.apiCoingeckoService._coins;
     // // this.apiCoingeckoService.update();
   }
- 
+  click3(){
+    this.apiCoingeckoService.updateAll()
+  }
   emit(){
     // this.apiCoingeckoService.update()
   }

@@ -12,6 +12,8 @@
         <form class="form-inline my-2 my-lg-0">
             <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" (keydown)="onKey($event)" (keyup)="onKey($event)">
         </form>
+        <button #button type="button" class="btn btn-info" (click)="click3()">Updates </button>
+      
     </nav>
 
  <div *ngIf='!view' >
@@ -39,7 +41,7 @@
                                   דבר אחר החיפוש עובד גם מהדף הזה
 </pre>
 </div> 
-    <img class="img-about" src="../../assets/IMG_20210201_173637.jpg" style="float: inline-end; height: 806.4px;width:  604.8px;">                                 
+    <img class="img-about" src="../../assets/IMG_20210201_173637.jpg" style="float: inline-end; height: 644.96px;width:  483.84px;">                                 
 </div>
 <div class="container-fluid" *ngIf='view && apiCoingeckoService.coins'>
     <ng-container *ngFor="let coin of apiCoingeckoService.coins; let i=index">

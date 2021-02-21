@@ -1,11 +1,11 @@
+# Project link
+`https://crypto-project-yoel-1-d50f5.web.app/about`
 # remote
 
 `git remote add origin https://github.com/yoel7/project.git`
 `git branch -M main`
 `git push -u origin main`
-# Project
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.0.6.
 
 ## Development server
 

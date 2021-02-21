@@ -56,4 +56,5 @@ export class CardCoinComponent  {
       //   this.apiCoingeckoService._coins.filter(a=>a.add),'יציאה');
        
     }
+    
 }

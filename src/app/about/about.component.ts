@@ -27,5 +27,8 @@ view:boolean=false;
     this.apiCoingeckoService.coins=this.apiCoingeckoService._coins;}
     // this.apiCoingeckoService.update();
   }
+  click3(){
+    this.apiCoingeckoService.updateAll()
+  }
 
 }

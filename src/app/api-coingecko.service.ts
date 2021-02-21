@@ -11,6 +11,7 @@ export class ApiCoingeckoService {
   // coinsS: BehaviorSubject<coin[]>;
   coins:coin[];
   _coins:coin[];
+  updatecoins:coin[];
   // coinsSubscription:Subscription;
   // coinsFaiv:coin[]=[];
   // coinsFaivo:number=0;
@@ -48,6 +49,14 @@ addFav(coinSymbol){
     this.coins=this._coins;
     // this.coinsFaivo--;
     // this.update();
+  }
+  updateAll(){
+    this.get().subscribe((a)=>{
+      this.updatecoins=a;
+      this.updatecoins.forEach((b,i,ar)=>b.add=this.coins[i].add);
+      // this.updatecoins.map(a=>(a.symbol='updet'));
+      this._coins=this.updatecoins;this.coins=this.updatecoins;
+      });
   }
 // addFaiv(coin){
 //   if (this.coinsFaiv.length > 1) {return false; }

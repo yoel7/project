@@ -1,5 +1,7 @@
 {
   "projects": {
-    "default": "crypto-project-yoel-1-d50f5"
+    "default": "crypto-project-yoel-1-d50f5",
+    "projectF1": "crypto-project-8ff2c",
+    "b8": "crypto-project-b8a25"
   }
 }
