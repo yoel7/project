@@ -8,7 +8,13 @@ export interface coin{
             eur:number,
             ils:number
 
-        }},
+        },
+        market_cap:{
+            usd:number,
+            eur:number,
+            ils:number
+        }
+    },
          image: {
             thumb: string,
             small: string,

@@ -3,14 +3,16 @@
   <div class="card">
     <div class="card-body">
       <div class="justify-content-between">
-        <h5 class="card-title">{{coin.name}}</h5>
-        <p class="card-text">    {{coin.symbol}}        </p>
-        <p class="card-text">price : {{coin.market_data.current_price.usd  | currency}}</p>
+        <div class="row">
+        <h5 class="card-title col">{{coin.name}}</h5>
         <div #checkbox class="custom-control custom-switch form-inline"> 
           <input type="checkbox"  class="custom-control-input " [id]="coin.symbol"  [checked]='checked' (click)='myFunction()'>
           <label class="custom-control-label checked" [for]="coin.symbol"></label>
         </div> 
-        <button #button type="button" class="btn btn-dark" (click)="click()">{{info}} Info</button>
+      </div>
+       <p class="card-text">{{coin.symbol}}        </p>
+        <p class="card-text">market cap  <br>{{coin.market_data.market_cap.usd  | currency}}</p>
+         <button #button type="button" class="btn btn-dark" (click)="click()">{{info}} Info</button>
         </div>
     </div>  
   </div>
@@ -27,8 +29,9 @@
         </div>
       </ng-container>  
       <ng-container *ngIf='more'>  
-        <p class="card-text">EUR : {{coin.market_data.current_price.eur | currency:'EUR'}}</p>
-        <p class="card-text">ILS : {{coin.market_data.current_price.ils | currency:'ILS'}}</p>
+        <p class="card-text">EUR : {{more.market_data.current_price.eur | currency:'EUR'}}</p>
+        <p class="card-text">USD : {{more.market_data.current_price.usd | currency:'EUR'}}</p>
+        <p class="card-text">ILS : {{more.market_data.current_price.ils | currency:'ILS'}}</p>
        <img [src]="more.image.small" />
       </ng-container>
     </div>
